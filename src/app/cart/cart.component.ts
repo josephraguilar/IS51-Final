@@ -90,13 +90,13 @@ export class CartComponent implements OnInit {
     } else if (this.nameParams.indexOf(', ') === -1) {
       this.toastService.showToast('warning', 2000, 'Name must have a comma - space!')
     } else {
-      this.toastService.showToast('success', 2000, 'Success!')
+      this.saveToLocalStorage('bikes', this.bikes);
+      this.toastService.showToast('success', 2000, 'Success!');
       let firstName, lastName, fullName, indexOfComma, subTotal, total, tax;
       indexOfComma = this.nameParams.indexOf(', ');
       firstName = this.nameParams.slice(indexOfComma + 1, this.nameParams.length);
       lastName = this.nameParams.slice(0, indexOfComma);
       fullName = firstName + ' ' + lastName;
-      console.log(fullName);
 
       subTotal = 0;
       for ( let i = 0; i < this.bikes.length; i++) {

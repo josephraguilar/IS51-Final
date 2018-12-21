@@ -26,14 +26,13 @@ export class LoginComponent implements OnInit {
   }
 
   passCheck() {
-    if (this.passwordInput || this.usernameInput === '') {
-      // this.toastService.showToast('warning', 2000, 'Must fill in both fields!')
-      console.log('usernam', this.usernameInput, 'password', this.passwordInput)
+    if (this.passwordInput === '' || this.usernameInput === '') {
+      this.toastService.showToast('warning', 2000, 'Must fill in both fields!');
     } else if(this.defaultUsername === this.usernameInput && this.defaultPassword === this.passwordInput) {
-      this.toastService.showToast('success', 2000, 'Success!')
-      this.router.navigate(['cart'])
+      this.toastService.showToast('success', 2000, 'Success!');
+      this.router.navigate(['cart']);
     } else {
-      this.toastService.showToast('warning', 2000, 'incorrect username/password!')
+      this.toastService.showToast('warning', 2000, 'incorrect username/password!');
     }
 
   }
